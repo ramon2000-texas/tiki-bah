@@ -1,0 +1,8 @@
+#!/bin/bash
+
+read -p "Enter the date like this, 0310: " date1
+read -p "Enter the time like this 09:00:00PM: " time1
+
+awk -F" " '{print $(1) $(2),$(5),$(6)}' $date1\_Dealer_schedule | grep $time1 | cut -d " " -f2,3 | sort -b | uniq -c 
+
+

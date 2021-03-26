@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+
+
+# Free memory output to free_mem.txt file
+echo -e "Free Memory:"
+free -h  | head -2 | tail -1 | awk '{print $4}' >> ~/backups/freemem/free_mem.txt
+
+# Disk usage output to disk_usage.txt file
+echo -e "Disk Usage:"
+sudo du -hs >> ~/backups/diskuse/disk_usage.txt
+
+# Open files to  open_list.txt file
+echo -e "Open Files"
+lsof >> ~/backups/openlist/open_list.txt
+
+# Free disk space to free_disk.txt file
+echo  -e "Free Disk"
+df -h >> ~/backups/freedisk/free_disk.txt
+
+
